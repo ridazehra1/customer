@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "321798167194",
+    "firebase_url": "https://fir-project-2c54d-default-rtdb.firebaseio.com",
+    "project_id": "fir-project-2c54d",
+    "storage_bucket": "fir-project-2c54d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321798167194:android:80f2f3f749269f4c8d5d23",
+        "android_client_info": {
+          "package_name": "online.kpk.trips"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321798167194-ggvpjrj34encdodu4utabv42epl3rv31.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "online.kpk.trips",
+            "certificate_hash": "e1503c517e1d478a6be70055406b0f3f8b3194e1"
+          }
+        },
+        {
+          "client_id": "321798167194-oqprshne0j2te6nab76hkupq016g9klv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh-oyRUnY07dvFKJaLM3s4x0Ki7FVR088"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321798167194-oqprshne0j2te6nab76hkupq016g9klv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,5 @@
+flutter_native_splash:
+  image: "assets/images/okk2.png"
+  color: "01a5ae"
+  height: 200
+  width: 400
