@@ -1,8 +1,6 @@
 // import 'package:velocity_x/velocity_x.dart';
 
 class Api {
-  
-
   static String get baseUrl {
     return "https://pktrips.mtcoders.com/api";
     // return "http://192.168.8.168:8000/api";
@@ -39,7 +37,6 @@ class Api {
   static const search = "/search";
   static const favourites = "/favourites";
 
-
   //cart & checkout
   static const coupons = "/coupons";
   static const deliveryAddresses = "/delivery/addresses";
@@ -73,6 +70,7 @@ class Api {
     final webUrl = baseUrl.replaceAll('/api', '');
     return "$webUrl/privacy/policy";
   }
+
   static String get terms {
     final webUrl = baseUrl.replaceAll('/api', '');
     return "$webUrl/pages/terms";

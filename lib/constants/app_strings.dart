@@ -92,6 +92,7 @@ class AppStrings {
     }
     return env('ui')['google']["searchByCountry"] ?? false;
   }
+
   static bool get showBannerOnHomeScreen {
     if (env('ui') == null || env('ui')["home"] == null) {
       return false;
@@ -137,6 +138,7 @@ class AppStrings {
   static Future<void> getAppSettingsFromLocalStorage() async {
     appSettingsObject =
         LocalStorageService.prefs.getString(AppStrings.appRemoteSettings);
+    // print("Local Storage ${appSettingsObject}");
     if (appSettingsObject != null) {
       appSettingsObject = jsonDecode(appSettingsObject);
     }

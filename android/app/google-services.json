@@ -8,18 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:321798167194:android:80f2f3f749269f4c8d5d23",
+        "mobilesdk_app_id": "1:321798167194:android:8e3151514889be7c8d5d23",
         "android_client_info": {
           "package_name": "online.kpk.trips"
         }
       },
       "oauth_client": [
         {
-          "client_id": "321798167194-ggvpjrj34encdodu4utabv42epl3rv31.apps.googleusercontent.com",
+          "client_id": "321798167194-26kpc2jock2c72ta7jmcqab9i3ksh01j.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "online.kpk.trips",
-            "certificate_hash": "e1503c517e1d478a6be70055406b0f3f8b3194e1"
+            "certificate_hash": "e988aad56b408f027aa9aab6e793c898bf3b0413"
           }
         },
         {

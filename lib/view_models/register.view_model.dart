@@ -58,62 +58,50 @@ class RegisterViewModel extends MyBaseViewModel {
   }
 
   void processRegister() async {
-    //   
-    userStore();
-        reg();
     accountPhoneNumber = "+${selectedCountry.phoneCode}${phoneTEC.text}";
-    //
-    // Validate returns true if the form is valid, otherwise false.
     if (formKey.currentState.validate() && agreed) {
-      //
       if (AppStrings.isFirebaseOtp) {
         processFirebaseOTPVerification();
-
-
       } else if (AppStrings.isCustomOtp) {
-        processCustomOTPVerification();
+        // processCustomOTPVerification();
       } else {
-        finishAccountRegistration();
-     
+        // finishAccountRegistration();
       }
     }
   }
 
- static final auth = FirebaseAuth.instance;
-reg() async{
-      await auth.createUserWithEmailAndPassword(
-                                  email: emailTEC.text,
-                                  password: passwordTEC.text);
+  static final auth = FirebaseAuth.instance;
+  reg() async {
+    await auth.createUserWithEmailAndPassword(
+        email: emailTEC.text, password: passwordTEC.text);
+  }
 
-}
-
- userStore() async {
+  userStore() async {
     FirebaseFirestore db = FirebaseFirestore.instance;
     String uid = await auth.currentUser.uid;
 
     try {
       await db.collection("Users").doc(uid).set({
-       
         "email": emailTEC.text,
-    
         "password": passwordTEC.text,
-      
       });
       print("User is register");
     } catch (e) {
       print("ERROR");
     }
   }
+
   //PROCESSING VERIFICATION
   processFirebaseOTPVerification() async {
     setBusy(true);
     //firebase authentication
+
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: accountPhoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) {
-        // firebaseVerificationId = credential.verificationId;
-        // verifyFirebaseOTP(credential.smsCode);
-        finishAccountRegistration();
+        print(credential.smsCode);
+        print(credential);
+        // finishAccountRegistration();
       },
       verificationFailed: (FirebaseAuthException e) {
         if (e.code == 'invalid-phone-number') {
@@ -126,7 +114,10 @@ reg() async{
         setBusy(false);
       },
       codeSent: (String verificationId, int resendToken) async {
+        print("code sent");
+        print("Verfication Id Before $firebaseVerificationId");
         firebaseVerificationId = verificationId;
+        print("Verfication Id AFter $firebaseVerificationId");
         showVerificationEntry();
       },
       codeAutoRetrievalTimeout: (String verificationId) {
@@ -180,7 +171,6 @@ reg() async{
             : null,
       ),
     );
-    
   }
 
   //
@@ -223,7 +213,8 @@ reg() async{
   ///
   void finishAccountRegistration() async {
     setBusy(true);
-
+    // firebase.auth().currentUser.unlink(firebase.auth.PhoneAuthProvider.PROVIDER_ID);
+    print("Finish Account Registration");
     final apiResponse = await _authRequest.registerRequest(
       name: nameTEC.text,
       email: emailTEC.text,
@@ -232,7 +223,7 @@ reg() async{
       password: passwordTEC.text,
       code: referralCodeTEC.text ?? "",
     );
-
+    print("Api Response : ${apiResponse.body}");
     setBusy(false);
 
     try {

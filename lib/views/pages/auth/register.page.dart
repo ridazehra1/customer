@@ -150,7 +150,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             CustomButton(
                               title: "Create Account".i18n,
                               loading: model.isBusy,
-                              onPressed: model.processRegister, // niw tell me where you got issue type here if you can just type
+                              onPressed: model
+                                  .processRegister, 
                             ).centered().py12(),
 
                             //register
