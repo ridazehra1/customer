@@ -154,7 +154,6 @@ class RegisterViewModel extends MyBaseViewModel {
           } else if (AppStrings.isCustomOtp) {
             verifyCustomOTP(smsCode);
           }
-
           viewContext.pop();
         },
         onResendCode: AppStrings.isCustomOtp
